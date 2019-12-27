@@ -2,19 +2,27 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  int qNum = 0;
+  var questions = [
+    "Question 1",
+    "Question 2",
+    "Question 3",
+    "Question 4",
+    "Question 5"
+  ];
+
   @override
   Widget build(BuildContext context) {
-    var questions = [
-      "Question 1",
-      "Question 2",
-      "Question 3",
-      "Question 4",
-      "Question 5"
-    ];
-    int qNum = 0;
-
     return MaterialApp(
       title: 'Quiz App',
 //      theme: ThemeData(
@@ -62,9 +70,14 @@ class MyApp extends StatelessWidget {
   }
 
   void questionAnsPressed() {
-    debugPrint("This is a questionAnsPressed()");
+//    debugPrint("This is a questionAnsPressed()");
+    setState(() {
+      qNum++;
+    });
+    debugPrint("This is question #$qNum");
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -83,7 +96,6 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
