@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       "Question 4",
       "Question 5"
     ];
+    int qNum = 0;
 
     return MaterialApp(
       title: 'Quiz App',
@@ -35,23 +36,33 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Text("The Question  "),
+            Text(questions[qNum] +
+                " Question #${questions.indexOf(questions[qNum])}"),
             RaisedButton(
               child: Text("A1."),
-              onPressed: () {},
+              onPressed: () {
+                qNum++;
+              },
             ),
             RaisedButton(
               child: Text("A2."),
-              onPressed: () {},
+              onPressed: () {
+                debugPrint("This is a A2.");
+                qNum++;
+              },
             ),
             RaisedButton(
               child: Text("A3."),
-              onPressed: () {},
+              onPressed: questionAnsPressed,
             ),
           ],
         ),
       ),
     );
+  }
+
+  void questionAnsPressed() {
+    debugPrint("This is a questionAnsPressed()");
   }
 }
 
