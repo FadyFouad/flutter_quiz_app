@@ -5,7 +5,6 @@ void main() => runApp(MyApp());
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
     return MyAppState();
   }
 }
@@ -45,7 +44,7 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Text(questions[qNum] +
-                " Question #${questions.indexOf(questions[qNum])}"),
+                " Question #${questions.indexOf(questions[qNum]) + 1}"),
             RaisedButton(
               child: Text("A1."),
               onPressed: () {
@@ -72,12 +71,13 @@ class MyAppState extends State<MyApp> {
   void questionAnsPressed() {
 //    debugPrint("This is a questionAnsPressed()");
     setState(() {
-      qNum++;
+      if (qNum < questions.length - 1) {
+        qNum++;
+      }
     });
     debugPrint("This is question #$qNum");
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -96,6 +96,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
