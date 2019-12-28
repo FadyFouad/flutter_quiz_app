@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/question.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return MyAppState();
-  }
+  State<StatefulWidget> createState() => MyAppState();
 }
 
 class MyAppState extends State<MyApp> {
@@ -43,20 +42,17 @@ class MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(questions[qNum] +
-                " Question #${questions.indexOf(questions[qNum]) + 1}"),
+            Question(
+              questionText: questions[qNum],
+            ),
             RaisedButton(
+              color: Colors.blue,
               child: Text("A1."),
-              onPressed: () {
-                qNum++;
-              },
+              onPressed: questionAnsPressed,
             ),
             RaisedButton(
               child: Text("A2."),
-              onPressed: () {
-                debugPrint("This is a A2.");
-                qNum++;
-              },
+              onPressed: questionAnsPressed,
             ),
             RaisedButton(
               child: Text("A3."),
