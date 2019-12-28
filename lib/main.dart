@@ -13,11 +13,46 @@ class MyAppState extends State<MyApp> {
   // This widget is the root of your application.
   int qNum = 0;
   var questions = [
-    "Question 1",
-    "Question 2",
-    "Question 3",
-    "Question 4",
-    "Question 5"
+    {
+      'Q': "Question 1",
+      'A': [
+        "Answer 1.1",
+        "Answer 1.2",
+        "Answer 1.3",
+      ]
+    },
+    {
+      'Q': "Question 2",
+      'A': [
+        "Answer 2.1",
+        "Answer 2.2",
+        "Answer 2.3",
+      ]
+    },
+    {
+      'Q': "Question 3",
+      'A': [
+        "Answer 3.1",
+        "Answer 3.2",
+        "Answer 3.3",
+      ]
+    },
+    {
+      'Q': "Question 4",
+      'A': [
+        "Answer 4.1",
+        "Answer 4.2",
+        "Answer 4.3",
+      ]
+    },
+    {
+      'Q': "Question 5",
+      'A': [
+        "Answer 5.1",
+        "Answer 5.2",
+        "Answer 5.3",
+      ]
+    }
   ];
 
   @override
@@ -31,18 +66,18 @@ class MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(
-              questionText: questions[qNum],
+              questionText: questions[qNum]['Q'],
             ),
             Answer(
-              ans: "A1.",
+              ans: (questions[qNum]['A'] as List)[0],
               ansPressed: questionAnsPressed,
             ),
             Answer(
-              ans: "A2.",
+              ans: (questions[qNum]['A'] as List)[1],
               ansPressed: questionAnsPressed,
             ),
             Answer(
-              ans: "A3.",
+              ans: (questions[qNum]['A'] as List)[2],
               ansPressed: questionAnsPressed,
             ),
 //            RaisedButton(
