@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_quiz_app/answer.dart';
 import 'package:flutter_quiz_app/question.dart';
 
 void main() => runApp(MyApp());
@@ -32,19 +33,26 @@ class MyAppState extends State<MyApp> {
             Question(
               questionText: questions[qNum],
             ),
-            RaisedButton(
-              color: Colors.blue,
-              child: Text("A1."),
-              onPressed: questionAnsPressed,
+            Answer(
+              ans: "A1.",
+              ansPressed: questionAnsPressed,
             ),
-            RaisedButton(
-              child: Text("A2."),
-              onPressed: questionAnsPressed,
+            Answer(
+              ans: "A2.",
+              ansPressed: questionAnsPressed,
             ),
-            RaisedButton(
-              child: Text("A3."),
-              onPressed: questionAnsPressed,
+            Answer(
+              ans: "A3.",
+              ansPressed: questionAnsPressed,
             ),
+//            RaisedButton(
+//              child: Text("A2."),
+//              onPressed: questionAnsPressed,
+//            ),
+//            RaisedButton(
+//              child: Text("A3."),
+//              onPressed: questionAnsPressed,
+//            ),
           ],
         ),
       ),
@@ -56,7 +64,7 @@ class MyAppState extends State<MyApp> {
     setState(() {
       if (qNum < questions.length - 1) {
         qNum++;
-        debugPrint("This is question #$qNum");
+        debugPrint("This is question #${qNum + 1}");
       } else {
         debugPrint("No More Questions");
       }
