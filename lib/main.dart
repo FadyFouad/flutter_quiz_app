@@ -68,25 +68,21 @@ class MyAppState extends State<MyApp> {
             Question(
               questionText: questions[qNum]['Q'],
             ),
-            Answer(
-              ans: (questions[qNum]['A'] as List)[0],
-              ansPressed: questionAnsPressed,
-            ),
-            Answer(
-              ans: (questions[qNum]['A'] as List)[1],
-              ansPressed: questionAnsPressed,
-            ),
-            Answer(
-              ans: (questions[qNum]['A'] as List)[2],
-              ansPressed: questionAnsPressed,
-            ),
-//            RaisedButton(
-//              child: Text("A2."),
-//              onPressed: questionAnsPressed,
+            ... (questions[qNum]['A'] as List<String>).map((a) {
+              return Answer(ans: a, ansPressed: questionAnsPressed,);
+            }).toList()
+
+//            Answer(
+//              ans: (questions[qNum]['A'] as List)[0],
+//              ansPressed: questionAnsPressed,
 //            ),
-//            RaisedButton(
-//              child: Text("A3."),
-//              onPressed: questionAnsPressed,
+//            Answer(
+//              ans: (questions[qNum]['A'] as List)[1],
+//              ansPressed: questionAnsPressed,
+//            ),
+//            Answer(
+//              ans: (questions[qNum]['A'] as List)[2],
+//              ansPressed: questionAnsPressed,
 //            ),
           ],
         ),
@@ -178,7 +174,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
             ),
           ],
         ),
