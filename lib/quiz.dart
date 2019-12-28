@@ -12,7 +12,9 @@ class Quiz extends StatelessWidget {
   var qNum;
   Function ansPressed;
 
-  Quiz({this.questions, this.qNum, this.ansPressed});
+  Quiz({@required this.questions,
+    @required this.qNum,
+    @required this.ansPressed});
 
   @override
   Widget build(BuildContext context) {
